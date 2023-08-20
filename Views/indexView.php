@@ -17,14 +17,19 @@ class indexView{
         <div class="nav">
         <div class="flexnav">
         <a class="Logo" href="inicio">Vinil´s life</a>
-        <button class="actnav"></button>
+       
         </div>
+        <button class="actnav"></button>
         <ul class="navLinks">
             <li><a href="inicio">Inicio</a></li>
             <li><a href="vinilos">Vinilos</a></li>
         </ul>
         </div>
-    </nav
+    </nav>
+    <div class="Portada">
+        <h2>Mira nuestra colección</h2>
+        <button class="btn success">Ver Vinilos</button>
+    </div>
         <p>Hola mundo!</p>
 
 
