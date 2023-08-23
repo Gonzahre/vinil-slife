@@ -1,0 +1,2 @@
+*Bajar la db de phpmyadmin.
+*Verificar con git status los cambios realizados para dejar un mejor mensaje en el commit

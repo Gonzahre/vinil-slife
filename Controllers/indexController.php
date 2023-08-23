@@ -1,12 +1,13 @@
 <?php
-require_once 'Views\indexView.php';
+require_once 'libs/Smarty.class.php';
 class indexController{
-    private $view;
+    private $smarty;
+
     function __construct(){
-        $this->view=new indexView();
+        $this->smarty=new Smarty();
     }
 
     function mostrarInicio(){
-        $this->view->showIndex();
+        $this->smarty->display('index.tpl');
     }
 }
