@@ -1,16 +1,14 @@
 <?php
 require_once 'libs/Smarty.class.php';
-class indexController
-{
+class authController{
     private $smarty;
-
+    
     function __construct()
     {
         $this->smarty = new Smarty();
     }
 
-    function mostrarInicio()
-    {
-        $this->smarty->display('index.tpl');
+    function mostrarLogin(){
+    $this->smarty->display('login.tpl');
     }
 }

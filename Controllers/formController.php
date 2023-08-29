@@ -1,6 +1,6 @@
 <?php
 require_once 'libs/Smarty.class.php';
-class indexController
+class formularioController
 {
     private $smarty;
 
@@ -9,8 +9,8 @@ class indexController
         $this->smarty = new Smarty();
     }
 
-    function mostrarInicio()
+    function mostrarForm()
     {
-        $this->smarty->display('index.tpl');
+        $this->smarty->display('insert.tpl');
     }
 }

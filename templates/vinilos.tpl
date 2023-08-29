@@ -10,9 +10,11 @@
                 <h3>{$vinilo->nombreDisco}</h3>
                 <p>{$vinilo->idAutor}</p>
                 <p>Año de lanzamiento: {$vinilo->fechaDisco}</p>
+                <a href="{BASE_URL}vinilos/{$vinilo->id}/eliminar">Borrar Vinilo</a>
+                <a href="{BASE_URL}vinilos/{$vinilo->id}">ir al vinilo</a>
             </div>
         </div>
     {/foreach}
-
+</div>
     <script src="public\nav.js"></script>
 {include 'templates/footer.tpl'}
