@@ -3,25 +3,28 @@
 require_once 'libs\Smarty.class.php';
 require_once 'Models\vinilosModel.php';
 require_once 'Models\autoresModel.php';
+require_once 'helpers/authHelper.php';
 
 class vinilosController
 {
-    private $model;
+    private $modelo;
     private $smarty;
     private $autoresModel;
+    private $authHelper;
 
     function __construct()
     {
         $this->smarty = new Smarty();
-        $this->model = new vinilosModel();
+        $this->modelo = new vinilosModel();
         $this->autoresModel=new autoresModel();
+        $this->authHelper=new AuthHelper();
     }
 
     function borrarVinilo($id){
         echo "LA ID ES:".$id;
-        $disco=$this->model->obtenerVinilo($id);
+        $disco=$this->modelo->obtenerVinilo($id);
         if(!empty($disco)){
-            $this->model->borrarVinil($id);
+            $this->modelo->borrarVinil($id);
         }
     else{ 
      header("Location:".BASE_URL."vinilos");
@@ -31,24 +34,23 @@ class vinilosController
 
     function obtenerVinilo($id)
     {
-        $vinilo = $this->model->obtenerVinilo($id);
-       
+        $vinilo = $this->modelo->obtenerVinilo($id);
         $autor=$this->autoresModel->obtenerAutor($vinilo->idAutor);
-        echo "El autor es: ". $autor->nombreAutor;
-        $this->smarty->assing("autor", $autor);
-     
+   
         $this->smarty->assign("vinilo", $vinilo);
+        $this->smarty->assign("autor", $autor);
         $this->smarty->display("vinilo.tpl");
     }
 
     function añadirVinilo()
     {
-        $this->model->añadirVinilo();
+        $this->modelo->añadirVinilo();
     }
 
     function mostrarVinilos()
     {
-        $vinilos = $this->model->obtenerVinilos();
+        $this->authHelper->desloguear();
+        $vinilos = $this->modelo->obtenerVinilos();
         $this->smarty->assign("vinilos", $vinilos);
         $this->smarty->display('vinilos.tpl');
     }

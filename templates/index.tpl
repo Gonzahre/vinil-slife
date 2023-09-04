@@ -5,8 +5,9 @@
  </div>
  <p>Hola mundo!</p>
 
-
-
+ {if $smarty.session.ROL=="admin"}
+    <h1 style="font-size: 56px;">HOLA ADMIN </h1>
+{/if}
  <script src="public\nav.js"></script>
  <script src="public\app.js"></script>
 

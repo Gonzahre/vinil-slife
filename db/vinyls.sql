@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-08-2023 a las 16:01:54
+-- Tiempo de generación: 04-09-2023 a las 14:46:34
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -61,7 +61,8 @@ CREATE TABLE `db_discos` (
 
 INSERT INTO `db_discos` (`id`, `imagen`, `nombreDisco`, `fechaDisco`, `idAutor`) VALUES
 (2, 'public\\images\\portadas\\2.jpg', 'ELO\'s Greatest Hits', 1979, 2),
-(47, '', 'DSA', 1960, 2);
+(48, 'public\\images\\portadas\\1.jpg', 'Breakfast In America', 1979, 1),
+(49, 'public\\images\\portadas\\3.jpg', 'Famous Last Words', 1979, 1);
 
 --
 -- Índices para tablas volcadas
@@ -94,7 +95,7 @@ ALTER TABLE `db_autor`
 -- AUTO_INCREMENT de la tabla `db_discos`
 --
 ALTER TABLE `db_discos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Restricciones para tablas volcadas

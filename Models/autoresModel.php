@@ -27,7 +27,7 @@ class autoresModel{
         $_con=$this->conectar();
         $sentencia=$_con->prepare("SELECT * FROM db_autor where id=?");
         $sentencia->execute([$id]);
-        $autor=$sentencia->fetchAll(PDO::FETCH_OBJ);
+        $autor=$sentencia->fetch(PDO::FETCH_OBJ);
         return $autor;
     }
 }

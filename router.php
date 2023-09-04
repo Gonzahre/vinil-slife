@@ -6,7 +6,7 @@ require_once 'Controllers\authController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 // leemos la accion que viene por parametro
-$action = 'home'; // acción por defecto
+$action = 'inicio'; // acción por defecto
 
 if (!empty($_GET['action'])) { // si viene definida la reemplazamos
     $action = $_GET['action'];
@@ -17,6 +17,7 @@ $indexController = new indexController();
 $params = explode('/', $action);
 $vinilosController = new vinilosController();
 $authController=new authController();
+
 switch ($params[0]) {
     case 'inicio':
         $indexController->mostrarInicio();
@@ -42,8 +43,18 @@ switch ($params[0]) {
         $vinilosController->añadirVinilo();
         header("Location:".BASE_URL."vinilos");
         break;
-    case 'login':
+    case 'iniciarsesion':
         $authController->mostrarLogin();
+        break;
+    case 'iniciars':
+        $authController->iniciarSesion();
+        break;
+    case 'registrarse':
+        $authController->mostrarRegistro();
+        break;
+    case 'Registrar':
+        $authController->registro();
+        header("location:".BASE_URL."vinilos");
         break;
     default:
         echo 'error 404';
