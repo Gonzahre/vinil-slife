@@ -1,4 +1,0 @@
-Router:
-    _Incorporar el router Avanzado (con Config App).
-
-    flimina 17 api parte 2
