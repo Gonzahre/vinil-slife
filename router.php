@@ -14,6 +14,6 @@ $Router->addRoute("vinilos", "GET", "vinilosApiController", "obtenerVinilos");
 $Router->addRoute("vinilos/:ID", "GET", "vinilosApiController", "obtenerVinilos");
 $Router->addRoute("vinilos/:ID", "DELETE", "vinilosApiController", "eliminarVinilo");
 $Router->addRoute("vinilos/:ID", "PUT", "vinilosApiController", "editarVinilo");
-$router->addRoute('vinilos', 'POST', 'vinilosApiController', 'aniadirVinilo');
+//$router->addRoute('vinilos', 'POST', 'vinilosApiController', 'aniadirVinilo');
 //rutea
 $Router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

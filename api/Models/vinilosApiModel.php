@@ -23,9 +23,10 @@
         }
 
         function obtenerVinilo($id){
+            $aidi=(int)$id;
             $db=$this->conectar();
-            $sentencia=$db->prepare("SELECT * FROM db_discos WHERE id=?");
-            $sentencia->execute($id);
+            $sentencia=$db->prepare("SELECT * FROM db_discos WHERE id=$aidi");
+            $sentencia->execute();
             $vinilo=$sentencia->fetch(PDO::FETCH_OBJ);
             return $vinilo;
         }

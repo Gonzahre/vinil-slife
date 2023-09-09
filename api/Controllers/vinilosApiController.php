@@ -14,13 +14,16 @@ class vinilosApiController{
 
     
     
-    function obtenerVinilos(){
-        echo 'hi';
+    function obtenerVinilos($params = null){
+       
         if(empty($params)){
             $Vinilos = $this->model->obtenerVinilos();
             return $this->view->response($Vinilos,200);
+      
           }
           else {
+            echo 'hi';
+            echo $params[":ID"];
             $vinilo = $this->model->obtenerVinilo($params[":ID"]);
             if(!empty($vinilo)) {
               return $this->view->response($vinilo,200);
