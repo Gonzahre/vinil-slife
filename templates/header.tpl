@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+<!--
 <style > /*nav*/
 html{
    height: 100%;
@@ -108,7 +110,7 @@ nav {
 }
 
 .Portada {
-    background-image: url('images/record-player-1851576_1280.jpg');
+    background-image: url('public/images/pua.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-y: 100%;
@@ -266,12 +268,12 @@ footer p {
         margin: 0 14px;
         text-align: center;
     }
-}</style>
+}</style> -->
     <base href="{BASE_URL}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio html</title>
-    <link rel="stylesheet" href="public\style.css">
+    <link rel="stylesheet" href="{BASE_URL}public/style.css">
 </head>
 
 <body>
@@ -279,10 +281,17 @@ footer p {
         <div class="nav">
             <div class="flexnav">
                 <a class="Logo" href="inicio">Vinil´s life</a>
-
             </div>
             <button class="actnav"></button>
+            <ul class="sesions navLinks">
+            {if isset($smarty.session.ROL) && $smarty.session.ROL=="admin"}
+            <li><a class="css-button-sharp--yellow" href="desloguearse">Desloguearse</a></li>
+            {/if}
+             <li><a class="css-button-sharp--yellow" href="iniciarsesion">Iniciar Sesión</a></li>
+             <li><a class="css-button-sharp--yellow" href="registrarse">Registrarse</a></li>
+            </ul>
             <ul class="navLinks">
+             
                 <li><a href="inicio">Inicio</a></li>
                 <li><a href="vinilos">Vinilos</a></li>
             </ul>

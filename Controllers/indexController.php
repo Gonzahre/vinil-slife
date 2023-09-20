@@ -17,12 +17,7 @@ class indexController
 
     function mostrarInicio()
     {
-        echo $_SESSION['ROL'];
-        if (isset($_SESSION['ROL'])) {
             $this->smarty->display('index.tpl');
-        } else {
-            header("location:".BASE_URL."iniciarsesion");
-            die();
-        }
+        
     }
 }

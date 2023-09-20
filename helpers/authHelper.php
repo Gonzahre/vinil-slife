@@ -19,13 +19,7 @@ class AuthHelper {
     }
 
     function chequearRol(){
-        if(session_status()!=PHP_SESSION_ACTIVE){
-            session_start();
-        }
-        if(isset($_SESSION['rol'])){
-            return true;
-        }
-        return false;
+    return $_SESSION['ROL'];
     }
 
     function chequearSesion() {

@@ -9,8 +9,5 @@ class formularioController
         $this->smarty = new Smarty();
     }
 
-    function mostrarForm()
-    {
-        $this->smarty->display('insert.tpl');
-    }
+ 
 }

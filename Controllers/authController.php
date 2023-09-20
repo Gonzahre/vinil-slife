@@ -34,6 +34,13 @@ class authController
             die();
         }
     }
+
+    function desloguearse(){
+        $this->authHelper->desloguear();
+        
+        header("location:".BASE_URL."vinilos");
+        die();
+    }
    
 
     function registro()

@@ -10,7 +10,6 @@ class vinilosModel{
         return $db;
     }
     catch(exception $e){
-        error_log(...);
         return null;
     }
     }
@@ -55,9 +54,17 @@ class vinilosModel{
     
     }
 
-    function actualizarVinilo(){
-        $db=$this->conectar();
-        $sentencia = $this->$db->prepare("UPDATE db_discos SET nombreV=?,`añoV`=?,`idAutor`=? WHERE id=?");
+    function actualizarVinilo($id){
         
+        $db=$this->conectar();
+        $nombreDisco=$_POST['nombreV'];
+        $idAutor=$_POST['idA'];
+        $fechaDisco=$_POST['añoV'];
+        $imgDisco=$_POST['imagen'];
+        $sentencia = $db->prepare("UPDATE `db_discos` SET `nombreDisco`=?, `fechaDisco`=?, `idAutor`=? WHERE id=$id");
+        $sentencia->bindValue(1, $nombreDisco, PDO::PARAM_STR);
+        $sentencia->bindValue(2, $fechaDisco, PDO::PARAM_STR);
+        $sentencia->bindValue(3, $idAutor, PDO::PARAM_INT);
+        $sentencia->execute();
     }
 }

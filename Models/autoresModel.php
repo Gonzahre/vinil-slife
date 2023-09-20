@@ -9,7 +9,7 @@ class autoresModel{
         return $db;}
 
        catch(exception $e){
-        error_log(...);
+      
         return null;
        }
 

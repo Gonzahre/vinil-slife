@@ -11,12 +11,15 @@ $action = 'inicio'; // acción por defecto
 if (!empty($_GET['action'])) { // si viene definida la reemplazamos
     $action = $_GET['action'];
 }
+
+//inicializo los controladores para posteriormente llamarlos en el switch.
 $formController= new formularioController();
 $indexController = new indexController();
-// parsea la accion Ej: dev/juan --> ['dev', juan]
-$params = explode('/', $action);
 $vinilosController = new vinilosController();
 $authController=new authController();
+// parsea la accion Ej: dev/juan --> ['dev', juan]
+$params = explode('/', $action);
+
 
 switch ($params[0]) {
     case 'inicio':
@@ -30,6 +33,9 @@ switch ($params[0]) {
         if($params[2]=="eliminar"){
             $vinilosController->borrarVinilo($params[1]);
         }
+        else if($params[2]=="editar"){
+            $vinilosController->mostrarForm($params[1]);
+        }
     }
         
        else{
@@ -37,10 +43,14 @@ switch ($params[0]) {
         }
         break;
     case 'form':
-        $formController->mostrarForm();
+        $vinilosController->mostrarForm();
         break;
     case 'insert':
         $vinilosController->añadirVinilo();
+        header("Location:".BASE_URL."vinilos");
+        break;
+    case 'actualizar':
+        $vinilosController->actualizarVinilo($params[1]);
         header("Location:".BASE_URL."vinilos");
         break;
     case 'iniciarsesion':
@@ -55,6 +65,9 @@ switch ($params[0]) {
     case 'Registrar':
         $authController->registro();
         header("location:".BASE_URL."vinilos");
+        break;
+    case 'desloguearse':
+        $authController->desloguearse();
         break;
     default:
         echo 'error 404';

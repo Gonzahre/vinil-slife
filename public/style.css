@@ -103,8 +103,43 @@
      margin: 0;
  }
 
+ .sesions{
+    list-style: none;
+    display: flex;
+    padding: 0;
+justify-content: space-between;
+ }
+
+ .sesions li a{
+    text-decoration: none;
+ }
+ .sesions li{
+    padding: 6px;
+ }
+
+ 
+
+ .css-button-sharp--yellow {
+    min-width: 10px;
+    height: 26  px;
+    color: #000000 !important;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border: 2px solid #ffd819;
+    background: #ffd819;
+  }
+  .css-button-sharp--yellow:hover {
+    background: #fff;
+    color: #ffd819
+  }
+
  .Portada {
-     background-image: url('images/record-player-1851576_1280.jpg');
+     background-image: url('images/pua.jpg');
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-position-y: 100%;
@@ -123,26 +158,41 @@
 
  }
 
- .contenedor {
-     display: flex;
-     flex-direction: row;
-     align-content: center;
-
- }
-
- .contenedorimg {
-     max-width: 41%;
-     aspect-ratio: 1/1;
- }
-
- .contenedorimg img {
-     width: 100%;
-
- }
+ .contenedor{
+    max-width: 210px;
+    padding: 30px;
+    min-height: 250px;
+    /*border: 2px solid red;*/
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .3s;
+}
+ .contenedor:hover{
+    background-color: #e6e6e6;
+}
+ .contenedor img{
+    width: 100%;
+    margin: 30px 0;
+}
+.contenedor .descripcion{
+    color: #ffffff;
+    font-weight: bold;
+}
+.contenedor .precio{
+    color: #f85151;
+    font-weight: bold;
+    font-size: 20px;
+}
 
  .caracteristicas {
      font-family: Arial, Helvetica, sans-serif;
 
+ }
+
+ .caracteristicas p{
+    color:#b6b6b6;
  }
 
  /*footer*/
@@ -233,33 +283,4 @@
          flex-direction: row;
      }
 
-     .contenedor {
-         flex-direction: column;
-         justify-content: center;
-         border: thin solid gray;
-         box-shadow: 2px;
-
-     }
-
-     .contenedor:hover {
-         border: thin solid transparent;
-         box-shadow: 0px;
-     }
-
-     .contenedorimg {
-
-         max-width: 17rem;
-     }
-
-     .contenedorimg img {
-         aspect-ratio: 1/1;
-         height: 15rem;
-         width: 15rem;
-         margin: 15px;
-     }
-
-     .contenedor {
-         margin: 0 14px;
-         text-align: center;
-     }
  }
