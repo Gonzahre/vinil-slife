@@ -43,6 +43,8 @@ class vinilosApiController{
 
     function agregarVinilo($params = null){
         $data=$this->getData();
+    if(isset($data->imagen) && isset($data->nombreDisco) && !empty($data->imagen) && !empty($data->nombreDisco)){
+    
         $id = $this->model->guardarVinilo($data->imagen, $data->nombreDisco, $data->fechaDisco, $data->idAutor);
         
         $this->obtenerVinilos($id);
