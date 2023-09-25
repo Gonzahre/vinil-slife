@@ -16,16 +16,25 @@ class vinilosModel{
 
     function obtenerVinilos(){
         $_con=$this->conectar();
-        $sentencia=$_con->prepare("SELECT * FROM db_discos");
+        $sentencia=$_con->prepare("SELECT * FROM db_discos JOIN db_autor ON db_discos.idAutor = db_autor.id");
         $sentencia->execute();
         $vinilos=$sentencia->fetchAll(PDO::FETCH_OBJ);
         return $vinilos;
     }
 
+    
+    function obtenerVinilo($id){
+        $_con=$this->conectar();
+        $sentencia=$_con->prepare("SELECT * FROM db_discos JOIN db_autor ON db_discos.idAutor = db_autor.id WHERE idVin=?;");
+        $sentencia->execute([$id]);
+        $vinilo=$sentencia->fetch(PDO::FETCH_OBJ);
+        return $vinilo;
+    }
+
     function borrarVinil($id){
         try{
         $_con=$this->conectar();
-        $sentencia = $_con->prepare('DELETE FROM db_discos WHERE id=?');
+        $sentencia = $_con->prepare('DELETE FROM db_discos where idVin=?');
         $sentencia->execute([$id]);
       /*  $sentencia=$_con->prepare("DELETE FROM db_discos where id=?");
         $sentencia->execute([$id]);*/
@@ -36,13 +45,6 @@ class vinilosModel{
         }
     }
 
-    function obtenerVinilo($id){
-        $_con=$this->conectar();
-        $sentencia=$_con->prepare("SELECT * FROM db_discos where id=?");
-        $sentencia->execute([$id]);
-        $vinilo=$sentencia->fetch(PDO::FETCH_OBJ);
-        return $vinilo;
-    }
 
     function añadirVinilo(){
 
@@ -61,7 +63,7 @@ class vinilosModel{
         $idAutor=$_POST['idA'];
         $fechaDisco=$_POST['añoV'];
         $imgDisco=$_POST['imagen'];
-        $sentencia = $db->prepare("UPDATE `db_discos` SET `nombreDisco`=?, `fechaDisco`=?, `idAutor`=? WHERE id=$id");
+        $sentencia = $db->prepare("UPDATE `db_discos` SET `nombreDisco`=?, `fechaDisco`=?, `idAutor`=? WHERE idVin=$id");
         $sentencia->bindValue(1, $nombreDisco, PDO::PARAM_STR);
         $sentencia->bindValue(2, $fechaDisco, PDO::PARAM_STR);
         $sentencia->bindValue(3, $idAutor, PDO::PARAM_INT);

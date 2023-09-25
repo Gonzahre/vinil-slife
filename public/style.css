@@ -58,7 +58,7 @@
 
  .navLinks {
      flex-direction: column;
-     display: none;
+     display: none !important;
  }
 
  .navLinks li {
@@ -78,7 +78,7 @@
 
 
  .mostrar {
-     display: flex;
+     display: flex !important;
 
  }
 
@@ -266,7 +266,7 @@ justify-content: space-between;
      }
 
      .navLinks {
-         display: flex;
+         display: flex !important;
          flex-direction: row;
      }
 

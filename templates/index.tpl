@@ -1,9 +1,7 @@
  {include 'templates/header.tpl'}
  <div class="Portada">
-     <button class="btn success">Ver Vinilos</button>
-     <button> bajar</button>
+     <button class="btn success" id="vinilos" href="vinilos">Ver Vinilos</button>
  </div>
- <p>Hola mundo!</p>
  {if isset($smarty.session.ROL) && $smarty.session.ROL=="admin"}
     <h1 style="font-size: 56px;">HOLA ADMIN {$smarty.session.USERNAME}</h1>
 {/if}

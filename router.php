@@ -25,6 +25,33 @@ switch ($params[0]) {
     case 'inicio':
         $indexController->mostrarInicio();
         break;
+        case 'form':
+            $vinilosController->mostrarForm();
+            break;
+        case 'insert':
+            $vinilosController->añadirVinilo();
+            header("Location:".BASE_URL."vinilos");
+            break;
+        case 'actualizar':
+            $vinilosController->actualizarVinilo($params[1]);
+            header("Location:".BASE_URL."vinilos");
+            break;
+        case 'iniciarsesion':
+            $authController->mostrarLogin();
+            break;
+        case 'iniciars':
+            $authController->iniciarSesion();
+            break;
+        case 'registrarse':
+            $authController->mostrarRegistro();
+            break;
+        case 'Registrar':
+            $authController->registro();
+            header("location:".BASE_URL."vinilos");
+            break;
+        case 'desloguearse':
+            $authController->desloguearse();
+            break;
     case 'vinilos':
         if(!isset($params[1])){   
              $vinilosController->mostrarVinilos();
@@ -42,33 +69,7 @@ switch ($params[0]) {
             $vinilosController->obtenerVinilo($params[1]);
         }
         break;
-    case 'form':
-        $vinilosController->mostrarForm();
-        break;
-    case 'insert':
-        $vinilosController->añadirVinilo();
-        header("Location:".BASE_URL."vinilos");
-        break;
-    case 'actualizar':
-        $vinilosController->actualizarVinilo($params[1]);
-        header("Location:".BASE_URL."vinilos");
-        break;
-    case 'iniciarsesion':
-        $authController->mostrarLogin();
-        break;
-    case 'iniciars':
-        $authController->iniciarSesion();
-        break;
-    case 'registrarse':
-        $authController->mostrarRegistro();
-        break;
-    case 'Registrar':
-        $authController->registro();
-        header("location:".BASE_URL."vinilos");
-        break;
-    case 'desloguearse':
-        $authController->desloguearse();
-        break;
+
     default:
         echo 'error 404';
 }
