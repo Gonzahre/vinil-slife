@@ -37,9 +37,9 @@ class vinilosApiModel
     function guardarVinilo($imagen, $nombreD, $fechaD, $autorD)
     {
         $_con=$this->conectar();
-        $sentencia=$_con->prepare("INSERT INTO db_discos(imagen, nombreDisco, fechaDisco, idAutor) VALUES(?,?,?,2");
+        $sentencia=$_con->prepare('INSERT INTO db_discos(imagen, nombreDisco, fechaDisco, idAutor) VALUES(?,?,?,?)');
         //$sentencia->execute([$imagen, $nombreD, $fechaD, $autorD]);
         $sentencia->execute([$imagen, $nombreD, $fechaD, $autorD]);
-
+        return $_con->lastInsertId();
     }
 }

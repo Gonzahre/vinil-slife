@@ -7,7 +7,7 @@ class vinilosApiController{
     private $view;
     private $data;
     
-    function __construct(){
+    public function __construct(){
         $this->model=new vinilosApiModel();
         $this->view=new apiView();
         $this->data = file_get_contents("php://input");
@@ -15,10 +15,11 @@ class vinilosApiController{
 
 
     
-
-    private function getData() {
+    public function getData()
+    {
+      $this->data = file_get_contents("php://input");
       return json_decode($this->data);
-  }
+    }
 
 
     
@@ -41,13 +42,15 @@ class vinilosApiController{
     
     }
 
-    function agregarVinilo($params = null){
-        $data=$this->getData();
-    if(isset($data->imagen) && isset($data->nombreDisco) && !empty($data->imagen) && !empty($data->nombreDisco)){
     
-        $id = $this->model->guardarVinilo($data->imagen, $data->nombreDisco, $data->fechaDisco, $data->idAutor);
-        
-        $this->obtenerVinilos($id);
-    }
 
+
+  public function aniadirVinilo(){
+    $data=$this->getData();
+    if($data!=null){
+    $id=$this->model->guardarVinilo($data->imagen, $data->nombreDisco, $data->fechaDisco, $data->idAutor);
+    $vinilo=$this->model->obtenerVinilo($id);
+    $this->view->response($vinilo,201);
+
+      }  }
 }
