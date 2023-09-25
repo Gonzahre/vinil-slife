@@ -229,6 +229,17 @@ justify-content: space-between;
     justify-content: center;
     background-color: rgb(8, 8, 8);
 }
+
+.divImg{
+    display:flex;
+    justify-content: center;
+    
+}
+ 
+ .vinImg{
+    width: 200px;
+ }
+
 .loginDiv form h1{
     margin: 0 0 10px 0;
     color: white;
@@ -276,11 +287,20 @@ justify-content: space-between;
          height: 85vh;
          background-position: 0;
      }
-
+     .vinFlex{
+        display:flex;
+     }
      /*vinilos css*/
      .vinilos {
         flex-wrap: wrap;
          flex-direction: row;
      }
+    
+     .caracteristicas{
+        margin: 40px;
+     }
 
+     .vinImg{
+        width: 450px;
+     }
  }

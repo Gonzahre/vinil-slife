@@ -1,6 +1,12 @@
 {include 'header.tpl'}
-<div>
+<div class="vinFlex">
+<div class="divImg">
+    <img src="{$vinilo->imagen}" class="vinImg">
+</div>
+<div class="caracteristicas">
     <h1>{$vinilo->nombreDisco}</h1>
-    <h2>Su autor es: {$autor->nombreAutor}</h2>
+    <h2>Su autor es: {$vinilo->nombreAutor}</h2>
+</div>
 
 </div>
+{include 'footer.tpl'}

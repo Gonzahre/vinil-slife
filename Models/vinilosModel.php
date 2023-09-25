@@ -29,6 +29,12 @@ class vinilosModel{
         $sentencia->execute([$id]);
         $vinilo=$sentencia->fetch(PDO::FETCH_OBJ);
         return $vinilo;
+        /* $aidi = (int)$id;
+        $db = $this->conectar();
+        $sentencia = $db->prepare("SELECT * FROM db_discos WHERE id=$aidi");
+        $sentencia->execute();
+        $vinilo = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $vinilo; */
     }
 
     function borrarVinil($id){

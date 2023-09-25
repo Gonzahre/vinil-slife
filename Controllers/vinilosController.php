@@ -40,10 +40,13 @@ class vinilosController
     {
         $vinilo = $this->modelo->obtenerVinilo($id);
 
-   
+        if($vinilo!=null){
+            
         $this->smarty->assign("vinilo", $vinilo);
 
         $this->smarty->display("vinilo.tpl");
+
+        }
     }
 
     function añadirVinilo()

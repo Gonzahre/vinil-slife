@@ -2,7 +2,8 @@
 
 <div class="vinilos">
     {foreach from=$vinilos item=$vinilo}
-        <div class="contenedor" onclick="verVinilo({$vinilo->id})">
+        <div class="contenedor" onclick="verVinilo({$vinilo->idVin})">
+
             <div class="contenedorimg">
                 <img src="{$vinilo->imagen}" alt="" srcset="">
             </div>
