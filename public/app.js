@@ -8,4 +8,10 @@ addEventListener("DOMContentLoaded", ()=>{
     function verVinilo(id){
         location.href=id;
     }
+
+    let contenedor=document.getElementsByClassName('contenedor');
+    let caracteristicas=document.getElementsByClassName('hov');
+    contenedor.addEventListener('mouseover', (e)=>{
+       caracteristicas.addClass(); 
+    })
 })

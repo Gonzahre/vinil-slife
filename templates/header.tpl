@@ -294,6 +294,8 @@ footer p {
              
                 <li><a href="inicio">Inicio</a></li>
                 <li><a href="vinilos">Vinilos</a></li>
+                <li><a href="autores">Autores</a></li>
+                
             </ul>
         </div>
 </nav>

@@ -22,7 +22,7 @@ class vinilosController
 
     function borrarVinilo($id){
         $this->authHelper->chequearSesion();
-        if($_SESSION['ROL']){
+        if(isset($_SESSION['ROL']) && $_SESSION['ROL']=="admin"){
         $disco=$this->modelo->obtenerVinilo($id);
         if(!empty($disco)){
             $this->modelo->borrarVinil($id);
@@ -63,17 +63,24 @@ class vinilosController
 
     function mostrarForm($id=null)
     {
+
+        if(isset($_SESSION['ROL']) && $_SESSION['ROL']="admin"){
         $autores=$this->autoresModel->obtenerAutores();
         if($id==null){
+            
             $vinilo=null;
             $this->smarty->assign("autores, $autores");
             $this->smarty->assign("vinilo", $vinilo);
             $this->smarty->display('insert.tpl');
         }
-       else{
-        $vinilo=$this->modelo->obtenerVinilo($id);
-        $this->smarty->assign("vinilo", $vinilo);
-        $this->smarty->display('insert.tpl');
-       }
+        else{
+           
+            $vinilo=$this->modelo->obtenerVinilo($id);
+            $this->smarty->assign("autores, $autores");
+            $this->smarty->assign("vinilo", $vinilo);
+            $this->smarty->display('insert.tpl');
+           }
+    }
+       
     }
 }

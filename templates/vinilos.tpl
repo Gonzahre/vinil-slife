@@ -8,12 +8,12 @@
                 <img src="{$vinilo->imagen}" alt="" srcset="">
             </div>
             <div class="caracteristicas">
-                <h3 class="descripcion">{$vinilo->nombreDisco}</h3>
+                <h3 class="descripcion hov">{$vinilo->nombreDisco}</h3>
                 <p>{$vinilo->nombreAutor}</p>
                 <p>Año de lanzamiento: {$vinilo->fechaDisco}</p>
                 {if isset($smarty.session.ROL) && $smarty.session.ROL==admin}
-                <a href="{BASE_URL}vinilos/{$vinilo->id}/eliminar">Borrar Vinilo</a>
-                <a href="{BASE_URL}vinilos/{$vinilo->id}/editar">Editar Vinilo</a>
+                <a href="{BASE_URL}vinilos/{$vinilo->idVin}/eliminar">Borrar Vinilo</a>
+                <a href="{BASE_URL}vinilos/{$vinilo->idVin}/editar">Editar Vinilo</a>
             {/if} 
             </div>
         </div>

@@ -13,14 +13,12 @@ class AuthHelper {
     }
 
     public function desloguear(){
+        $_SESSION['ROL']='usuario';
         unset($_SESSION);
         session_destroy();
     
     }
 
-    function chequearRol(){
-    return $_SESSION['ROL'];
-    }
 
     function chequearSesion() {
         if(session_status() != PHP_SESSION_ACTIVE){

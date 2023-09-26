@@ -30,4 +30,11 @@ class autoresModel{
         $autor=$sentencia->fetch(PDO::FETCH_OBJ);
         return $autor;
     }
+
+    function eliminarAutor($id){
+
+    }
+    function actualizarAutor($id){
+
+    }
 }

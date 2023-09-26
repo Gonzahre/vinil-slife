@@ -22,7 +22,16 @@ class vinilosModel{
         return $vinilos;
     }
 
-    
+    function obtenerVinilosPorAutor($id){
+        $_con=$this->conectar();
+        $sentencia=$_con->prepare("SELECT * FROM db_discos WHERE idAutor=?");
+        $sentencia->execute([$id]);
+        $vinilos=$sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $vinilos;
+
+    }
+  
+
     function obtenerVinilo($id){
         $_con=$this->conectar();
         $sentencia=$_con->prepare("SELECT * FROM db_discos JOIN db_autor ON db_discos.idAutor = db_autor.id WHERE idVin=?;");
