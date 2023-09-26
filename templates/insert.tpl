@@ -11,8 +11,11 @@
     <input type="text" name="idA"{if $vinilo!=null}value="{$vinilo->idAutor}"{/if} placeholder="Inserte el id del autor">
     <label>Inserte la url de la imagen</label>
     <input type="text" name="imagen" placeholder="Ingrese su imagen">
-    
-   
+    <select>
+    {foreach from=$autores item=$autor}
+    <option value"{$autor->id}">{$autor->nombreAutor}</option>
+   {{/foreach}}
+    </select>
     {if $vinilo==null}
     <button type="submit" class="btn btn-primary">Agregar</button>
   
@@ -22,7 +25,5 @@
 </form>
 
 <h2>UPDATE FORMULARIO</h2>
-<script>
 
-</script>
 {include 'footer.tpl'}

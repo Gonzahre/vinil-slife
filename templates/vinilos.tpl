@@ -2,7 +2,7 @@
 
 <div class="vinilos">
     {foreach from=$vinilos item=$vinilo}
-        <div class="contenedor" onclick="verVinilo({$vinilo->idVin})">
+        <div class="contenedor" onmouseover="hover({$vinilo->idVin})" onclick="verVinilo({$vinilo->idVin})">
 
             <div class="contenedorimg">
                 <img src="{$vinilo->imagen}" alt="" srcset="">
@@ -19,12 +19,7 @@
         </div>
     {/foreach}
 </div>
-<script>
 
-    function verVinilo(id){
-        location.href="vinilos/"+id;
-    }
-</script>
-    <script src="public\nav.js"></script>
-    <script src="public\app.js"></script>
+ 
+
 {include 'templates/footer.tpl'}

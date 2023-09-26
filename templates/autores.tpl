@@ -24,6 +24,5 @@
         location.href="autores/"+id;
     }
 </script>
-    <script src="public\nav.js"></script>
-    <script src="public\app.js"></script>
+
 {include 'templates/footer.tpl'}

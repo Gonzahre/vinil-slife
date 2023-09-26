@@ -69,7 +69,7 @@ class vinilosController
         if($id==null){
             
             $vinilo=null;
-            $this->smarty->assign("autores, $autores");
+            $this->smarty->assign("autores", $autores);
             $this->smarty->assign("vinilo", $vinilo);
             $this->smarty->display('insert.tpl');
         }
