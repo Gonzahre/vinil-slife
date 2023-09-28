@@ -1,6 +1,9 @@
 {include 'templates/header.tpl'}
 
 <div class="vinilos">
+    {if isset($smarty.session.ROL) && $smarty.session.ROL=="admin"}
+        <a href="formAutores">Añadir Autor</a>
+    {/if}
     {foreach from=$autores item=$autor}
         <div class="contenedor" onclick="verAutores({$autor->id})">
 
@@ -11,17 +14,16 @@
                 <h3 class="descripcion hov">{$autor->nombreAutor}</h3>
                 <p>Año de lanzamiento: {$autor->anioAutor}</p>
                 {if isset($smarty.session.ROL) && $smarty.session.ROL==admin}
-                <a href="{BASE_URL}autores/{$autor->id}/eliminar">Borrar Vinilo</a>
-                <a href="{BASE_URL}autores/{$autor->id}/editar">Editar Vinilo</a>
-            {/if} 
+                    <a href="{BASE_URL}autores/{$autor->id}/eliminar">Borrar Autor</a>
+                    <a href="{BASE_URL}autores/{$autor->id}/editar">Editar Autor</a>
+                {/if}
             </div>
         </div>
     {/foreach}
 </div>
 <script>
-
-    function verAutores(id){
-        location.href="autores/"+id;
+    function verAutores(id) {
+        location.href = "autores/" + id;
     }
 </script>
 

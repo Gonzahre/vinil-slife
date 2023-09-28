@@ -11,6 +11,6 @@ addEventListener("DOMContentLoaded", () => {
                 element.classList.remove("mostrar");
             }
         });
-    
+
     })
 })

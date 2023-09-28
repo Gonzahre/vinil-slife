@@ -1,3 +1,29 @@
+# vinil'slife
+
+
+## Integrante
+- [Gonzalo Hellers](gonzalohellers@gmail.com)
+
+## Temática del Trabajo Práctico Especial (TPE)
+
+El proyecto vinil'slife se centra en el desarrollo de un gestor de discos de vinilo y autores. 
+Este sistema permitirá a los usuarios llevar un registro organizado de su colección de vinilos, incluyendo información detallada sobre los discos y los artistas que los crearon.
+
+## Descripción de la Temática
+
+La temática de este proyecto se enfoca en la pasión por la música en formato de vinilo. 
+Los vinilos son apreciados por su calidad de sonido y su valor histórico, y los coleccionistas suelen tener una variedad de discos de diferentes géneros y artistas.
+vinil'slife ayudará a los usuarios a catalogar su colección, proporcionando información esencial sobre cada disco y el autor correspondiente.
+
+## Diagrama de Entidad Relación (DER)
+
+A continuación, se muestra el diagrama de entidad-relación (DER) que representa la estructura de la base de datos utilizada en Vinilo Manager:
+
+![Diagrama de Entidad Relación](Diagrama de Entidad Relación.png)
+
+
+## Codigo SQL:
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
@@ -150,3 +176,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

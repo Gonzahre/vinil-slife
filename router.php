@@ -15,8 +15,8 @@ if (!empty($_GET['action'])) { // si viene definida la reemplazamos
 //inicializo los controladores para posteriormente llamarlos en el switch.
 $indexController = new indexController();
 $vinilosController = new vinilosController();
-$authController=new authController();
-$autoresController=new autoresController();
+$authController = new authController();
+$autoresController = new autoresController();
 // parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
@@ -25,67 +25,72 @@ switch ($params[0]) {
     case 'inicio':
         $indexController->mostrarInicio();
         break;
-        case 'form':
-            $vinilosController->mostrarForm();
-            break;
-        case 'insert':
-            $vinilosController->añadirVinilo();
-            header("Location:".BASE_URL."vinilos");
-            break;
-        case 'actualizar':
-            $vinilosController->actualizarVinilo($params[1]);
-            header("Location:".BASE_URL."vinilos");
-            break;
-        case 'iniciarsesion':
-            $authController->mostrarLogin();
-            break;
-        case 'iniciars':
-            $authController->iniciarSesion();
-            break;
-        case 'registrarse':
-            $authController->mostrarRegistro();
-            break;
-        case 'Registrar':
-            $authController->registro();
-            header("location:".BASE_URL."vinilos");
-            break;
-        case 'desloguearse':
-            $authController->desloguearse();
-            break;
+    case 'formVin':
+        $vinilosController->mostrarForm();
+        break;
+    case 'insertVinil':
+        $vinilosController->añadirVinilo();
+        header("Location:" . BASE_URL . "vinilos");
+        break;
+    case 'actualizarVinil':
+        $vinilosController->actualizarVinilo($params[1]);
+        header("Location:" . BASE_URL . "vinilos");
+        break;
+    case 'formAutores':
+        $autoresController->mostrarForm();
+        break;
+    case 'insertAutor':
+         $autoresController->aniadirAutor();
+         header("Location:" . BASE_URL . "autores");
+         break;
+    case 'actualizarAutor':
+         $autoresController->actualizarAutor($params[1]);
+          header("Location:" . BASE_URL . "autores");
+         break;
+    case 'iniciarsesion':
+        $authController->mostrarLogin();
+        break;
+    case 'iniciars':
+        $authController->iniciarSesion();
+        break;
+    case 'registrarse':
+        $authController->mostrarRegistro();
+        break;
+    case 'Registrar':
+        $authController->registro();
+        header("location:" . BASE_URL . "vinilos");
+        break;
+    case 'desloguearse':
+        $authController->desloguearse();
+        break;
     case 'vinilos':
-        if(!isset($params[1])){   
-             $vinilosController->mostrarVinilos();
-        }
-    elseif(isset($params[1])&&isset($params[2]) ){
-        if($params[2]=="eliminar"){
-            $vinilosController->borrarVinilo($params[1]);
-        }
-        else if($params[2]=="editar"){
-            $vinilosController->mostrarForm($params[1]);
-        }
-    }
-        
-       else{
+        if (!isset($params[1])) {
+            $vinilosController->mostrarVinilos();
+        } elseif (isset($params[1]) && isset($params[2]) && $params[1] == "filtrar") {
+            $vinilosController->mostrarFiltro($params[2]);
+        } elseif (isset($params[1]) && isset($params[2])) {
+            if ($params[2] == "eliminar") {
+                $vinilosController->borrarVinilo($params[1]);
+            } else if ($params[2] == "editar") {
+                $vinilosController->mostrarForm($params[1]);
+            }
+        } else {
             $vinilosController->obtenerVinilo($params[1]);
         }
         break;
-        case 'autores':
-            if(!isset($params[1])){   
-                 $autoresController->mostrarAutores();
+    case 'autores':
+        if (!isset($params[1])) {
+            $autoresController->mostrarAutores();
+        } elseif (isset($params[1]) && isset($params[2])) {
+            if ($params[2] == "eliminar") {
+                $autoresController->borrarAutor($params[1]);
+            } else if ($params[2] == "editar") {
+                $autoresController->mostrarForm($params[1]);
             }
-        elseif(isset($params[1])&&isset($params[2]) ){
-            if($params[2]=="eliminar"){
-                $vinilosController->borrarVinilo($params[1]);
-            }
-            else if($params[2]=="editar"){
-                $vinilosController->mostrarForm($params[1]);
-            }
+        } else {
+            $autoresController->mostrarAutor($params[1]);
         }
-            
-           else{
-                $autoresController->mostrarAutor($params[1]);
-            }
-            break;
+        break;
     default:
         echo 'error 404';
 }

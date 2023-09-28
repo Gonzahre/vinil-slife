@@ -94,6 +94,12 @@
 
  }
 
+ .contenedorimg img{
+ height: 205.156px;
+ width: 209.969;
+ max-width: 210.969;
+ }
+
  .success:hover {
      background-color: #46a049;
      color: white;
@@ -108,7 +114,8 @@
     display: flex;
     padding: 0;
 justify-content: space-between;
- }
+margin-bottom:14px ; 
+}
 
  .sesions li a{
     text-decoration: none;
@@ -138,6 +145,25 @@ justify-content: space-between;
     color: #ffd819
   }
 
+  .css-button-sharp--white {
+    min-width: 10px;
+    height: 26  px;
+    color: #000000 !important;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border: 2px solid white;
+    background: white;
+  }
+  .css-button-sharp--white:hover {
+    background: #ffd819;
+    color: white
+  }
+
  .Portada {
      background-image: url('images/pua.jpg');
      background-repeat: no-repeat;
@@ -160,9 +186,8 @@ justify-content: space-between;
 
  .contenedor{
     max-width: 210px;
-    padding: 30px;
-    min-height: 250px;
-    /*border: 2px solid red;*/
+    padding: 0px 20px;
+   max-height: 450px;    /*border: 2px solid red;*/
     text-align: center;
     margin: 0 10px;
     cursor: pointer;
@@ -173,7 +198,7 @@ justify-content: space-between;
     background-color: #000000;
 }
  .contenedor img{
-    width: 100%;
+    min-width: 50%;
     margin: 30px 0;
 }
 .contenedor .descripcion{
@@ -255,6 +280,9 @@ justify-content: space-between;
 .btnSub{
     width: 50%;
 }
+.divFormularios{
+    margin-left: 40px;
+}
 
  /*Media Query para pc, ya que estamos desarrollando mobile first*/
  @media (min-width: 600px) {
@@ -293,6 +321,7 @@ justify-content: space-between;
      }
      /*vinilos css*/
      .vinilos {
+        margin-left: 4vw;
         flex-wrap: wrap;
          flex-direction: row;
      }

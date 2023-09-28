@@ -17,7 +17,6 @@ class indexController
 
     function mostrarInicio()
     {
-            $this->smarty->display('index.tpl');
-        
+        $this->smarty->display('index.tpl');
     }
 }
