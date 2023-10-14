@@ -67,11 +67,9 @@ class autoresController{
         if (isset($_SESSION['ROL']) && $_SESSION['ROL'] = "admin") {
             if ($id == null) {
                 $autor = null;
-                echo $id;
                 $this->smarty->assign("autor", $autor);
                 $this->smarty->display('insertAutor.tpl');
             } else {
-                echo $id;
                 $autor = $this->model->obtenerAutor($id);
                 $this->smarty->assign("autor", $autor);
                 $this->smarty->display('insertAutor.tpl');

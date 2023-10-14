@@ -1,8 +1,11 @@
 {include 'header.tpl'}
-
+{if $vinilo==null}
 <h2>INSERTAR FORMULARIO</h2>
+{else}
+    <h2>Update Formulario</h2>
+{/if}
 
-<form {if $vinilo==null}action="insertVinil" {else} action="actualizarVinil/{$vinilo->idVin}" {/if} method="post">
+<form {if $vinilo==null}action="{BASE_URL}vinilos/aniadir" {else} action="{BASE_URL}vinilos/editar/{$vinilo->idVin}" {/if} method="post">
     <label>Inserte el nombre del disco.</label>
     <input type="text" name="nombreV" {if $vinilo!=null}value="{$vinilo->nombreDisco}"
         {/if}placeholder="Nombre del disco">
@@ -25,6 +28,6 @@
     {/if}
 </form>
 
-<h2>UPDATE FORMULARIO</h2>
+
 
 {include 'footer.tpl'}

@@ -25,28 +25,7 @@ switch ($params[0]) {
     case 'inicio':
         $indexController->mostrarInicio();
         break;
-    case 'formVin':
-        $vinilosController->mostrarForm();
-        break;
-    case 'insertVinil':
-        $vinilosController->añadirVinilo();
-        header("Location:" . BASE_URL . "vinilos");
-        break;
-    case 'actualizarVinil':
-        $vinilosController->actualizarVinilo($params[1]);
-        header("Location:" . BASE_URL . "vinilos");
-        break;
-    case 'formAutores':
-        $autoresController->mostrarForm();
-        break;
-    case 'insertAutor':
-         $autoresController->aniadirAutor();
-         header("Location:" . BASE_URL . "autores");
-         break;
-    case 'actualizarAutor':
-         $autoresController->actualizarAutor($params[1]);
-          header("Location:" . BASE_URL . "autores");
-         break;
+   
     case 'iniciarsesion':
         $authController->mostrarLogin();
         break;
@@ -66,6 +45,17 @@ switch ($params[0]) {
     case 'vinilos':
         if (!isset($params[1])) {
             $vinilosController->mostrarVinilos();
+        } 
+        elseif (isset($params[1]) && !isset($params[2]) && $params[1] == "añadir") {
+        $vinilosController->mostrarForm();
+        }
+        elseif (isset($params[1]) && !isset($params[2]) && $params[1] == "aniadir") {
+            $vinilosController->añadirVinilo();
+            header("Location:" . BASE_URL . "vinilos");
+        } 
+        elseif (isset($params[1]) && isset($params[2]) && $params[1] == "editar") {
+            $vinilosController->actualizarVinilo($params[2]);
+            header("Location:" . BASE_URL . "vinilos");
         } elseif (isset($params[1]) && isset($params[2]) && $params[1] == "filtrar") {
             $vinilosController->mostrarFiltro($params[2]);
         } elseif (isset($params[1]) && isset($params[2])) {
@@ -81,7 +71,20 @@ switch ($params[0]) {
     case 'autores':
         if (!isset($params[1])) {
             $autoresController->mostrarAutores();
-        } elseif (isset($params[1]) && isset($params[2])) {
+        } 
+        elseif (isset($params[1]) && !isset($params[2]) && $params[1] == "añadir"){
+            $autoresController->mostrarForm();}
+
+        elseif (isset($params[1]) && !isset($params[2]) && $params[1] == "aniadir"){
+            $autoresController->aniadirAutor();
+            header("Location:" . BASE_URL . "autores");
+        }
+         
+            elseif (isset($params[1]) && isset($params[2]) && $params[1] == "editar"){
+            $autoresController->actualizarAutor($params[2]);
+            header("Location:" . BASE_URL . "autores");}
+          
+        elseif (isset($params[1]) && isset($params[2])) {
             if ($params[2] == "eliminar") {
                 $autoresController->borrarAutor($params[1]);
             } else if ($params[2] == "editar") {

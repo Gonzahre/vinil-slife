@@ -17,7 +17,7 @@
 
     {if isset($smarty.SESSION.ROL) && $smarty.session.ROL=="admin"}
 
-        <a href="formVin">Añadir Vinilo</a>
+        <a href="{BASE_URL}vinilos/añadir">Añadir Vinilo</a>
     {/if}
 </div>
 <div class="vinilos">

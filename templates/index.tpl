@@ -4,7 +4,6 @@
  </div>
 
 
-
  <script>
  function redirigir(){
     location.href="vinilos";

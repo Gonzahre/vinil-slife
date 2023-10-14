@@ -1,9 +1,9 @@
 {include 'templates/header.tpl'}
-
+{if isset($smarty.session.ROL) && $smarty.session.ROL=="admin"}
+    <a href="{BASE_URL}autores/añadir">Añadir Autor</a>
+{/if}
 <div class="vinilos">
-    {if isset($smarty.session.ROL) && $smarty.session.ROL=="admin"}
-        <a href="formAutores">Añadir Autor</a>
-    {/if}
+  
     {foreach from=$autores item=$autor}
         <div class="contenedor" onclick="verAutores({$autor->id})">
 

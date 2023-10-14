@@ -19,7 +19,7 @@ vinil'slife ayudará a los usuarios a catalogar su colección, proporcionando in
 
 A continuación, se muestra el diagrama de entidad-relación (DER) que representa la estructura de la base de datos utilizada en Vinilo Manager:
 
-![Diagrama de Entidad Relación](Diagrama de Entidad Relación.png)
+![Diagrama de Entidad Relación](Diagrama de Entidad Relación.pdf)
 
 
 ## Codigo SQL:

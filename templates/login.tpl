@@ -1,7 +1,5 @@
 {include 'header.tpl'}
-{if $smarty.session.ROL=='usuario'}
-<h1>HOLA USUARIO</h1>
-{/if}
+
 <div class="loginDiv">
     <form action="iniciars" method="post">
         <h1>Iniciar Sesion</h1>

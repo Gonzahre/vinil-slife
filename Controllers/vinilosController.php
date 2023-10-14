@@ -91,7 +91,6 @@ class vinilosController
 
     public function mostrarFiltro($idAutor)
     {
-
         $post = (int) $idAutor;
         $autores=$this->autoresModel->obtenerAutores();
         $autor = $this->autoresModel->obtenerAutor($post);
