@@ -1,6 +1,7 @@
 <?php
 require_once 'libs/Router.php';
 require_once 'api/Controllers/vinilosApiController.php';
+require_once 'api/Controllers/autoresApiController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -15,6 +16,12 @@ $Router->addRoute("vinilos/:ID", "GET", "vinilosApiController", "obtenerVinilos"
 $Router->addRoute("vinilos/:ID", "DELETE", "vinilosApiController", "eliminarVinilo");
 $Router->addRoute("vinilos/:ID", "PUT", "vinilosApiController", "editarVinilo");
 $Router->addRoute("vinilos", "POST", "vinilosApiController", "aniadirVinilo");
+$Router->addRoute("autores", "GET", "autoresApiController", "obtenerAutores");
+$Router->addRoute("autores/:ID", "GET", "autoresApiController", "obtenerAutores");
+$Router->addRoute("autores/:ID", "DELETE", "autoresApiController", "eliminarAutor");
+$Router->addRoute("autores/:ID", "PUT", "autoresApiController", "editarAutor");
+$Router->addRoute("autores/:ID", "PATCH", "autoresApiController", "editarAutor");
+$Router->addRoute("autores", "POST", "autoresApiController", "aniadirAutor");
 
 //rutea
 $Router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

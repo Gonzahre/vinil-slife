@@ -31,8 +31,6 @@ class vinilosApiController{
       
           }
           else {
-            echo 'hi';
-            echo $params[":ID"];
             $vinilo = $this->model->obtenerVinilo($params[":ID"]);
             if(!empty($vinilo)) {
               return $this->view->response($vinilo,200);
@@ -53,4 +51,22 @@ class vinilosApiController{
     $this->view->response($vinilo,201);
 
       }  }
+
+      function eliminarVinilo($params=null){
+        if(!empty($params[":ID"])){
+          $vinilo=$this->model->obtenerVinilo($params[":ID"]);
+          $this->model->eliminarVinilo($params[":ID"]);
+          $this->view->response($vinilo,200);
+        }
+      }
+
+  public function editarVinilo($params = null){
+    $data=$this->getData();
+    if($data!=null && !empty($params[":ID"])){
+     try{ $this->model->editarVinilo($data->imagen, $data->nombreDisco, $data->fechaDisco, $data->genero, $data->idAutor, $params[":ID"]);
+     }
+     catch(error $e){$vinilo=$this->model->obtenerVinilo($params[":ID"]);
+      $this->view->response($vinilo,201);}
+    }
+}
 }

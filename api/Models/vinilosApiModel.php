@@ -28,10 +28,16 @@ class vinilosApiModel
     {
         $aidi = (int)$id;
         $db = $this->conectar();
-        $sentencia = $db->prepare("SELECT * FROM db_discos WHERE id=$aidi");
+        $sentencia = $db->prepare("SELECT * FROM db_discos WHERE idVin=$aidi");
         $sentencia->execute();
         $vinilo = $sentencia->fetch(PDO::FETCH_OBJ);
         return $vinilo;
+    }
+
+    function eliminarVinilo($id){
+        $_con=$this->conectar();
+        $sentencia=$_con->prepare("DELETE from db_discos where idVin=?");
+        $sentencia->execute([$id]);
     }
 
     function guardarVinilo($imagen, $nombreD, $fechaD, $autorD)
@@ -41,5 +47,12 @@ class vinilosApiModel
         //$sentencia->execute([$imagen, $nombreD, $fechaD, $autorD]);
         $sentencia->execute([$imagen, $nombreD, $fechaD, $autorD]);
         return $_con->lastInsertId();
+    }
+
+    function editarVinilo($imagen, $nombreD, $fechaD, $genero, $autorD, $id){
+        $_con=$this->conectar();
+        $sentencia = $_con->prepare("UPDATE `db_discos` SET `imagen`=?, `nombreDisco`=?, `fechaDisco`=?, `genero`=?, `idAutor`=? WHERE idVin=?");
+        $sentencia->execute([$imagen, $nombreD, $fechaD, $genero, $autorD, $id]);
+        
     }
 }
