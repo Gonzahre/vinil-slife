@@ -1,3 +1,14 @@
+# Índice
+
+- [Colección Vinilos](#colección-vinilos)
+  - [Obtener datos de la colección (métodos GET)](#obtener-datos-de-la-colección-métodos-get)
+  - [Otros métodos (POST, PUT, DELETE)](#otros-métodos-post-put-delete)
+
+- [Colección Autores](#colección-autores)
+  - [Obtener datos de la colección (métodos GET)](#obtener-datos-de-la-colección-métodos-get-1)
+  - [Otros métodos (POST, PUT, DELETE)](#otros-métodos-post-put-delete-1)
+
+
 # Colección Vinilos
 
 Esta documentación describe las operaciones disponibles para gestionar una colección de vinilos a través de una API.
