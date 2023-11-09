@@ -34,6 +34,28 @@ class vinilosApiModel
         return $vinilo;
     }
 
+    public function filtrarPorCampos($nombre, $autor, $anio, $genero){
+        $_con=$this->conectar();
+        $sentencia = $_con->prepare('SELECT db_discos.*, db_autor.nombreAutor FROM db_discos JOIN db_autor ON db_discos.idAutor = db_autor.id WHERE db_discos.nombreDisco LIKE :nombre OR db_discos.fechaDisco LIKE :anio OR db_discos.genero LIKE :genero OR db_autor.nombreAutor LIKE :autor');
+        $sentencia->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $sentencia->bindParam(':anio', $anio, PDO::PARAM_INT);
+        $sentencia->bindParam(':genero', $genero, PDO::PARAM_STR);
+        $sentencia->bindParam(':autor', $autor, PDO::PARAM_STR);
+        $sentencia->execute();
+        echo $genero;
+       
+        $vinilos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $vinilos;
+     }
+
+     public function ordenarVinilos($columna, $orden=null){
+        $_con=$this->conectar();
+        $sentencia = $_con->prepare('SELECT  db_discos.*, db_autor.nombreAutor FROM db_discos JOIN db_autor ON db_discos.idAutor = db_autor.id ORDER BY '.$columna.' '.$orden);
+        $sentencia->execute();
+        $ejercicios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $ejercicios;
+    }
+
     function eliminarVinilo($id){
         $_con=$this->conectar();
         $sentencia=$_con->prepare("DELETE from db_discos where idVin=?");

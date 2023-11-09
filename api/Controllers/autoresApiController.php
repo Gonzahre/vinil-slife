@@ -1,14 +1,17 @@
 <?php
 require_once 'api\Models\autoresApiModel.php';
+require_once 'api\Helper\authApiHelper.php';
 require_once 'api\Views\apiView.php';
 class autoresApiController{
 
     private $model;
+    private $AuthAPIhelper;
     private $view;
     private $data;
     
     public function __construct(){
         $this->model=new autoresApiModel();
+        $this->AuthAPIhelper=new AuthApiHelper();
         $this->view=new apiView();
         $this->data = file_get_contents("php://input");
     }
@@ -23,6 +26,10 @@ class autoresApiController{
 
 
     function eliminarAutor($params=null){
+      if (!$this->AuthAPIhelper->isLoggedIn()) {
+        $this->view->response("No estas logeado", 401);
+        return;
+      }
       if(!empty($params[":ID"])){
         $vinilo=$this->model->obtenerAutor($params[":ID"]);
         $this->model->eliminarAutor($params[":ID"]);
