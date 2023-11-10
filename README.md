@@ -17,22 +17,22 @@ Esta documentación describe las operaciones disponibles para gestionar una cole
 
 ### Obtener todos los vinilos
 - **Método:** GET
-- **Ruta:** /vinilos
+- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos
 - **Descripción:** Obtiene todos los vinilos en la colección.
 
 ### Obtener un vinilo específico
 - **Método:** GET
-- **Ruta:** /vinilos/{id}
+- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos/{id}
 - **Descripción:** Obtiene un vinilo específico por su ID.
 
 ### Obtener vinilos con paginación
 - **Método:** GET
-- **Ruta:** /vinilos/paginacion
+- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos/paginacion
 - **Descripción:** Obtiene los vinilos con paginación para una navegación más fácil.
 
 ### Obtener vinilos ordenados por campos
 - **Método:** GET
-- **Ruta:** /vinilos/ordenar
+- **Ruta:**  localhost/(Nombre de la carpeta)/api/vinilos/ordenar/<nombre de columna a filtrar>?order=(asc o desc)
 - **Descripción:** Obtiene los vinilos ordenados según campos específicos.
 
 ### Obtener vinilos con filtros
