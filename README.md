@@ -32,29 +32,29 @@ Esta documentación describe las operaciones disponibles para gestionar una cole
 
 ### Obtener vinilos ordenados por campos
 - **Método:** GET
-- **Ruta:**  localhost/(Nombre de la carpeta)/api/vinilos/ordenar/<nombre de columna a filtrar>?order=(asc o desc)
+- **Ruta:**  localhost/(Nombre de la carpeta)/api/vinilos/ordenar/(nombre de columna a ordenar)?order=(asc o desc)
 - **Descripción:** Obtiene los vinilos ordenados según campos específicos.
 
 ### Obtener vinilos con filtros
 - **Método:** GET
-- **Ruta:** /vinilos/filtrar
+- **Ruta:**  localhost/(Nombre de la carpeta)/api/vinilos/filtro?(nombre de columna a filtrar)=(Valor deseado para esa columna)
 - **Descripción:** Obtiene vinilos que coincidan con ciertos criterios de filtrado.
 
 ## Otros métodos (POST, PUT, DELETE)
 
 ### Agregar un nuevo vinilo
 - **Método:** POST
-- **Ruta:** /vinilos
+- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos
 - **Descripción:** Agrega un nuevo vinilo a la colección.
 
 ### Actualizar un vinilo existente
 - **Método:** PUT
-- **Ruta:** /vinilos/{id}
+- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos/{id}
 - **Descripción:** Actualiza la información de un vinilo existente.
 
 ### Eliminar un vinilo
 - **Método:** DELETE
-- **Ruta:** /vinilos/{id}
+- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos/{id}
 - **Descripción:** Elimina un vinilo de la colección por su ID.
 
 ## Ejemplo de solicitud (POST):
@@ -127,3 +127,6 @@ Content-Type: application/json
     "nacionalidad": "Nacionalidad del autor",
     "nacimiento": "Fecha de nacimiento"
 }
+
+# Autenticación de la API
+En la pestaña "Authorization", seleccionar Basic Auth e ingresar las credenciales almacenadas en la base de datos. Si el ingreso es valido, devolverá un token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwiZXhwIjoxNjk5NTgxNTA5fQ.DdRyq_De4l_sLFVtE2bomBnq62WIivDRKpBRwrvDxsU"
