@@ -64,9 +64,11 @@ POST /vinilos
 Content-Type: application/json
 
 {
-    "titulo": "Nombre del vinilo",
-    "artista": "Nombre del artista",
-    "año": 2023
+"imagen": "a",
+"nombreDisco": "Pipes of Peace2",
+"fechaDisco": 1983,
+"genero":"pop",
+"idAutor":5
 }
 # Colección Autores
 
@@ -130,3 +132,5 @@ Content-Type: application/json
 
 # Autenticación de la API
 En la pestaña "Authorization", seleccionar Basic Auth e ingresar las credenciales almacenadas en la base de datos. Si el ingreso es valido, devolverá un token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwiZXhwIjoxNjk5NTgxNTA5fQ.DdRyq_De4l_sLFVtE2bomBnq62WIivDRKpBRwrvDxsU"
+
+Este token deberá ser ingresado en la pestaña Authorization en la sección "Bearer Token" al ejecutar un metodo POST, PUT o DELETE
