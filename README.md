@@ -38,6 +38,7 @@ Esta documentación describe las operaciones disponibles para gestionar una cole
 ### Obtener vinilos con filtros
 - **Método:** GET
 - **Ruta:**  localhost/(Nombre de la carpeta)/api/vinilos/filtro?(nombre de columna a filtrar)=(Valor deseado para esa columna)
+- **Nombres de las columnas**=nombre(String), autor(String, nombre del autor), anio(Int), genero(String).
 - **Descripción:** Obtiene vinilos que coincidan con ciertos criterios de filtrado.
 
 ## Otros métodos (POST, PUT, DELETE)
@@ -78,44 +79,40 @@ Esta documentación describe las operaciones disponibles para gestionar una cole
 
 ### Obtener todos los autores
 - **Método:** GET
-- **Ruta:** /autores
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores
 - **Descripción:** Obtiene todos los autores en la colección.
 
 ### Obtener un autor específico
 - **Método:** GET
-- **Ruta:** /autores/{id}
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores/{id}
 - **Descripción:** Obtiene un autor específico por su ID.
-
-### Obtener autores con paginación
-- **Método:** GET
-- **Ruta:** /autores/paginacion
-- **Descripción:** Obtiene los autores con paginación para una navegación más fácil.
-
+  
 ### Obtener autores ordenados por campos
 - **Método:** GET
-- **Ruta:** /autores/ordenar
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores/ordenar
 - **Descripción:** Obtiene los autores ordenados según campos específicos.
 
 ### Obtener autores con filtros
 - **Método:** GET
-- **Ruta:** /autores/filtrar
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores/filtro?(nombre de columna a filtrar)=(Valor deseado para esa columna)
+- **Nombres de las columnas**=nombre(String), anio(Int).
 - **Descripción:** Obtiene autores que coincidan con ciertos criterios de filtrado.
 
 ## Otros métodos (POST, PUT, DELETE)
 
 ### Agregar un nuevo autor
 - **Método:** POST
-- **Ruta:** /autores
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores
 - **Descripción:** Agrega un nuevo autor a la colección.
 
 ### Actualizar un autor existente
 - **Método:** PUT
-- **Ruta:** /autores/{id}
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores/{id}
 - **Descripción:** Actualiza la información de un autor existente.
 
 ### Eliminar un autor
 - **Método:** DELETE
-- **Ruta:** /autores/{id}
+- **Ruta:** localhost/(Nombre de la carpeta)/api/autores/{id}
 - **Descripción:** Elimina un autor de la colección por su ID.
 
 ## Ejemplo de solicitud (POST):
@@ -125,9 +122,9 @@ POST /autores
 Content-Type: application/json
 
 {
-    "nombre": "Nombre del autor",
-    "nacionalidad": "Nacionalidad del autor",
-    "nacimiento": "Fecha de nacimiento"
+"Imagen": "public\\images\\autores\\Supertramp.jpeg",
+"nombreAutor": "Supertramp",
+"anioAutor": 1969
 }
 
 # Autenticación de la API
