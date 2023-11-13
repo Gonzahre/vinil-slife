@@ -28,11 +28,14 @@ class AuthApiController {
             $this->view->response('La autenticación debe ser Basic', 401);
             return;
         };
+
         $userpass = base64_decode($basic[1]);
         $userpass = explode(":", $userpass);
         $user = $userpass[0];
         $pass = $userpass[1];
-        if($user == "Admin" && $pass == "web"){
+        $userdb=$this->model->buscarUsuario($user);
+        if($userdb!=null){
+        if(password_verify($pass, $userdb->pass)){
             $header = array(
                 'alg' => 'HS256',
                 'typ' => 'JWT'
@@ -50,7 +53,10 @@ class AuthApiController {
              $this->view->response($token,200);
         } else {
             $this->view->response('No autorizado', 401);
-        };
+        };}
+        else{
+            $this->view->response('No se encontró un usuario con el nombre proporcionado', 404);
+        }
     }
 
     private function base64UrlEncode($data) {

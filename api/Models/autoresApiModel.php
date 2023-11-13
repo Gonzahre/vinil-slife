@@ -54,5 +54,23 @@ class autoresApiModel{
         
     }
 
+    function filtrarPorCampos($nombreAutor, $anio){
+
+        $db=$this->conectar();
+        $sentencia = $db->prepare('SELECT * FROM db_autor WHERE nombreAutor LIKE "'.$nombreAutor.'" OR anioAutor LIKE "'.$anio.'"');
+        $sentencia->execute();
+       
+        $autores = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $autores;
+    }
+    function ordenarAutores($columna, $orden){
+        $db=$this->conectar();
+        $sentencia = $db->prepare('SELECT * FROM db_autor ORDER BY '.$columna.' '.$orden.'');
+        $sentencia->execute();
+
+        $autores = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $autores;
+    }
+
 
 }
