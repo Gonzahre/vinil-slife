@@ -7,6 +7,8 @@
 - [Colección Autores](#colección-autores)
   - [Obtener datos de la colección (métodos GET)](#obtener-datos-de-la-colección-métodos-get-1)
   - [Otros métodos (POST, PUT, DELETE)](#otros-métodos-post-put-delete-1)
+ 
+- [Autenticacion de la api](#Autenticación-de-la-API)
 
 
 # Colección Vinilos
