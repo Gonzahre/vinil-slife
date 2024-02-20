@@ -27,11 +27,6 @@ Esta documentación describe las operaciones disponibles para gestionar una cole
 - **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos/{id}
 - **Descripción:** Obtiene un vinilo específico por su ID.
 
-### Obtener vinilos con paginación
-- **Método:** GET
-- **Ruta:** localhost/(Nombre de la carpeta)/api/vinilos/paginacion
-- **Descripción:** Obtiene los vinilos con paginación para una navegación más fácil.
-
 ### Obtener vinilos ordenados por campos
 - **Método:** GET
 - **Ruta:**  localhost/(Nombre de la carpeta)/api/vinilos/ordenar/(nombre de columna a ordenar)?order=(asc o desc)
